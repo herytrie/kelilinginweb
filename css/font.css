@@ -1,0 +1,28 @@
+@font-face {
+	font-family: 'chivo';
+	src: url('../css/font-awesome-4.2.0/Chivo-Light.otf');
+}
+@font-face {
+	font-family: 'maxwell';
+	src: url('../css/font-awesome-4.2.0/maxwell.light.ttf');
+}
+@font-face {
+	font-family: 'oswaldextra';
+	src: url('../css/font-awesome-4.2.0/Oswald-ExtraLight.ttf');
+}
+@font-face {
+	font-family: 'oswaldlight';
+	src: url('../css/font-awesome-4.2.0/Oswald-Light.ttf');
+}
+@font-face {
+	font-family: 'ptsans';
+	src: url('../css/font-awesome-4.2.0/ptsans.woff2');
+}
+@font-face {
+	font-family: 'lato';
+	src: url('../css/font-awesome-4.2.0/Lato-Regular.ttf');
+}
+@font-face {
+	font-family: 'latolight';
+	src: url('../css/font-awesome-4.2.0/Lato-Light.ttf');
+}
