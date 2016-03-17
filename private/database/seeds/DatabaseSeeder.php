@@ -43,7 +43,7 @@ class UserPostingSeeder extends Seeder {
 			'password' => '123456',
 			'phone' => '083198696258',
 			'info' => 'My Trip My adventure',
-			'photo' => 'user.jpg'));
+			'photo' => 'heri.jpg'));
 
 			$this->command->info('user berhasil diisi!');
 
@@ -53,7 +53,7 @@ class UserPostingSeeder extends Seeder {
 			'password' => '123456',
 			'phone' => '08123456789',
 			'info' => 'Good Girl is Bad Girl',
-			'photo' => 'user.jpg'));
+			'photo' => 'art.jpg'));
 
 			$this->command->info('user berhasil diisi!');
 
@@ -63,7 +63,7 @@ class UserPostingSeeder extends Seeder {
 			'password' => '123456',
 			'phone' => '081123456789',
 			'info' => 'Bad Boy, Smiley Boy',
-			'photo' => 'user.jpg'));
+			'photo' => 'boss.jpg'));
 
 			$this->command->info('user berhasil diisi!');
 
@@ -73,7 +73,7 @@ class UserPostingSeeder extends Seeder {
 			'password' => '123456',
 			'phone' => '081123456789',
 			'info' => 'Good Mom, Smiley Mom',
-			'photo' => 'user.jpg'));
+			'photo' => 'face.jpg'));
 			
 		foreach(DB::table('users')->get() as $user){
 			DB::table('users')->where('id', $user->id)->update(array('password'=>Hash::make($user->password)));
