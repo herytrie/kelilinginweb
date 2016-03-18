@@ -44,6 +44,9 @@
 						<li><a href="{{ url('/auth/register') }}">Register</a></li>
 					@else
 						<li>
+							<a href="{{ url('/createplan') }}"><i class='glyphicon glyphicon-list-alt'></i></a>
+						</li>
+						<li>
 							<!-- {!!link_to_route('profile.show','Profile',Auth::user()->id)!!} -->
 							<a class="tip-bottom" data-original-title="Your Profile" data-toogle="tooltip" href={{URL::route('profile.show',Auth::user()->id)}} title="Your Profile">
                        			<img class="img-circle img-nav" src={{url('assets/photo/small_'.Auth::user()->photo)}} alt="Logo">
@@ -67,6 +70,8 @@
 	@yield('content')
 
 	<!-- Scripts -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCeCAhmBV1aJRpEyTpQzwZV-NS_zIfGdSE&sensor=false&language=id">
+  </script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>

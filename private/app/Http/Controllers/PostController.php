@@ -60,7 +60,9 @@ class PostController extends Controller {
 	        	$followingname[] = $temp2->id;
 	        }
 		}
-		if (in_array($user->id, $followingname) || Auth::check()){
+		if ($user->id == $userauth->id)
+			return view('post.detail')->with('post',$post)->with('user',$user);
+		if (in_array($user->id, $followingname)){
 			return view('post.detail')->with('post',$post)->with('user',$user);
 		}
 		else{
@@ -74,9 +76,11 @@ class PostController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function createplan()
 	{
-		//
+    	$userid = Auth::user()->id;
+        $view = User::findOrFail($userid);
+		return view('post.travelplan')->with('plan',$view);
 	}
 
 	/**

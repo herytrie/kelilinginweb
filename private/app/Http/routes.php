@@ -43,6 +43,8 @@ Route::patch('setting',['as' => 'setting.update','uses' => 'HomeController@updat
 Route::get('following/{id}', 'RelasiController@following');
 Route::get('place/{id}', 'RelasiController@place');
 
+Route::get('createplan',['as' => 'plan.show','uses' => 'PostController@createplan']);
+
 Route::get('social/login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
 Route::get('social/login/{provider}', 'Auth\AuthController@handleProviderCallback');
 // Route::get('relasi-1', function() {
