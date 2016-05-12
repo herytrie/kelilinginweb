@@ -42,10 +42,11 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index($id)
+	public function index($slug)
 	{
 		$authid = Auth::user()->id;
 		$userauth = User::findOrFail($authid);
+		$id = user::whereSlug($slug)->firstOrFail()->id;
         $user = User::findOrFail($id);
         if($userauth->following->toArray() == null){
 	        $followinglist[] = 0;

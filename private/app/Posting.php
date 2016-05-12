@@ -1,8 +1,17 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class Posting extends Model {
+class Posting extends Model implements SluggableInterface {
+
+	use SluggableTrait;
+
+    protected $sluggable = [
+        'build_from' => 'judul',
+        'save_to'    => 'slug',
+    ];
 
 	protected $table = 'posting';
 	
@@ -20,8 +29,16 @@ class Posting extends Model {
 		return $this->hasMany('App\Comments','post_id');
 	}
 
-	// public function place(){
-	// 	return $this->belongsToMany('App\Posting', 'following', 'user_id', 'followingid');
+	// public static function publish($body, $poster_firstname, $poster_profile_image)
+	// {
+	// 	$feed = new static(compact('body', 'poster_firstname', 'poster_profile_image'));
+
+	// 	return $feed;
 	// }
+
+	public static function getTotalCountFeedsForUser($userIds)
+	{
+		return self::whereIn('user_id', $userIds)->count();
+	}
 
 }

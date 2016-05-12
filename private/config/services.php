@@ -37,7 +37,13 @@ return [
 	'facebook' => [
 		'client_id' => '126801180763119',
 		'client_secret' => 'c20d64243ab7f8b4d8d95f385eefb132',
-		'redirect' => 'localhost/kelilinginid/auth/facebook/callback',
+		'redirect' => 'http://localhost/kelilingin/callback/facebook',
+	],
+
+	'google' => [
+		'client_id' => '473238970455-s4thev5pveo9imtdhrgv9g86sc540m10.apps.googleusercontent.com',
+		'client_secret' => 'e9t_orKHZQcVk-SFdTUNx7tK',
+		'redirect' => 'http://kelilinginweb-idstartup.rhcloud.com/kelilingin/callback/google',
 	],
 
 ];

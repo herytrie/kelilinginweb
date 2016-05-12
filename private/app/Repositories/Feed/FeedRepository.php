@@ -8,6 +8,6 @@ interface FeedRepository
 
 	public function getPublishedByUser(User $user);
 	
-	public function getPublishedByUserAndFriendsAjax(User $user, $skipQty);
+	//public function getPublishedByUserAndFriendsAjax(User $user, $skipQty);
 	
 }

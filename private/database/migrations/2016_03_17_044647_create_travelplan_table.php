@@ -16,10 +16,12 @@ class CreateTravelplanTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('tujuan');
+			$table->string('judul');
 			$table->string('lat');
 			$table->string('lng');
 			$table->date('datefrom');
 			$table->date('dateto');
+			$table->string('photo');
 			$table->unsignedInteger('itinerary_id');
 			$table->foreign('itinerary_id')->references('id')->on('itinerary')->onDelete('CASCADE');
 			$table->unsignedInteger('user_id');

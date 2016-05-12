@@ -70,14 +70,14 @@
 				
 			  	<div class="panel-body">
 				<div class="head" style="margin-bottom: 0px;">
-				<a href="index.php"><h1 class='logo'>Kelilingin</h1></a>
+				<a href="#"><h1 class='logo'>Kelilingin</h1></a>
 				<p class="white f14px" style="color: #ACABAB;"><b>Stay Connected With Us.</b></p>
 				</div>
-			    	<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			    	<form class="form-horizontal" role="form" method="POST" action="{!! url('/auth/login') !!}">
+					<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 						
 							<span class="input input--fumi" style="margin-bottom:-5px;">
-								<input class="input__field input__field--fumi" placeholder="E-mail" name="email" type="email" id="input-23" value="{{ old('email') }}" required/>
+								<input class="input__field input__field--fumi" placeholder="E-mail" name="email" type="email" id="input-23" value="{!! old('email') !!}" required/>
 								<label class="input__label input__label--fumi" for="input-23">
 									<i class="fa fa-fw fa-envelope-o icon icon--fumi"></i>
 								</label>
@@ -104,7 +104,7 @@
 								</div>
 						</div>
 						<div class="col-md-6">
-							<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+							<a class="btn btn-link" href="{!! url('/password/email') !!}">Forgot Your Password ?</a>
 						</div>
 					</div>
 					<div class="col-sm-12">
@@ -113,7 +113,7 @@
 						<strong>Whoops!</strong> There were some problems with your input.<br>
 						<ul>
 							@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
+								<li>{!! $error !!}</li>
 							@endforeach
 						</ul>
 					</div>
@@ -129,7 +129,8 @@
 						<a href="register" class="white"> Sign Up.</a>
 					</span>
 				</h3>
-				<a class="btn btn-primary" href="{{ route('social.login', ['facebook']) }}">Facebook</a>
+				<a class="btn btn-primary" href="{!! route('social.login', ['facebook']) !!}">Facebook</a>
+				<a class="btn btn-primary" href="{!! route('social.login', ['google']) !!}">Google</a>
 			</div>
 		</div>
 	</div>

@@ -15,8 +15,12 @@ class CreateItineraryTable extends Migration {
 		Schema::create('itinerary', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('judul');
-			$table->timestamps();
+            $table->string('judul');
+            $table->date('startdate');
+            $table->date('enddate');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->timestamps();
 		});
 	}
 

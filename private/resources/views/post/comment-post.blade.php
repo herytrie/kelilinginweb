@@ -1,12 +1,12 @@
-<div class="panel-heading"><b>Comments ( {{$post->comments->count()}} )</b></div>
+<div class="panel-heading"><b>Comments ( {!! $post->comments->count() !!} )</b></div>
 <div class="panel-body">
 @foreach($post->comments as $comment)
 	<?php $userkomen = App\User::findOrFail($comment['user_id']);?>
 	<div class="col-md-12">
 	<div class="form-group">
-		<img class="img-circle img-nav" src={{url('assets/photo/small_'.$userkomen['photo'])}} alt="Logo">
-		<a href={{ url('/profile/'.$userkomen->id) }}>{{$userkomen->name}} </a><br/>
-		<p class="col-md-offset-1">{{ $comment['comment'] }}</p>
+		<img class="img-circle img-nav" src={!! Cloudder::show($userkomen['photo'],['width' => 25, 'height' => 25])!!} alt="Logo">
+		<a href={!! url('/profile/'.$userkomen->slug) !!}>{!! $userkomen->name !!} </a><br/>
+		<p class="col-md-offset-1">{!! $comment['comment'] !!}</p>
 	</div>
 	</div>
 @endforeach

@@ -5,6 +5,9 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Socialite;
+use Validator;
+use App\User;
+use Auth;
 
 class AuthController extends Controller {
 
@@ -28,11 +31,8 @@ class AuthController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
 	 * @return void
 	 */
-	public function __construct(Guard $auth, Registrar $registrar)
+	public function __construct()
 	{
-		$this->auth = $auth;
-		$this->registrar = $registrar;
-
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 	
@@ -43,7 +43,43 @@ class AuthController extends Controller {
 	public function handleProviderCallback($provider)
 	{
 		$user = Socialite::driver($provider)->user();
-		dd($user); //test dump menampilkan data user facebook.
+		//dd($user); //test dump menampilkan data user facebook.
+		$data = ['name'=>$user->name, 'email'=>$user->email, 'password'=>$user->token, 'photo'=>$user->avatar];
+		$userDB = User::where('email',$user->email)->first();
+		if(!is_null($userDB)){
+			Auth::login($userDB);
+		}
+		else{
+			Auth::login($this->create($data));
+		}
+		return redirect('/home');
 	}
+
+	public function validator(array $data)
+	{
+		return Validator::make($data, [
+			'name' => 'required|max:255',
+			'email' => 'required|email|max:255|unique:users',
+			'password' => 'required|confirmed|min:6',
+		]);
+	}
+
+	/**
+	 * Create a new user instance after a valid registration.
+	 *
+	 * @param  array  $data
+	 * @return User
+	 */
+	public function create(array $data)
+	{
+		return User::create([
+			'name' => $data['name'],
+			'email' => $data['email'],
+			'password' => bcrypt($data['password']),
+			'photo' => 'default_uo7kn0',
+			'coverimage' => 'cover_lmyrqj',
+		]);
+	}
+
 
 }

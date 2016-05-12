@@ -1,14 +1,14 @@
 @extends('app')
 
 @section('title')
-<title>Setting - {{Auth::user()->name}}</title>
+<title>Setting - {!! Auth::user()->name !!}</title>
 
 @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
-				<div class="panel-heading"><b>Setting User {{Auth::user()->name}}</b></div>
+				<div class="panel-heading"><b>Setting User {!! Auth::user()->name !!}</b></div>
 
 				<div class="panel-body">
 					{!! Form::model($setting,['method'=>'PATCH','route'=>'setting.update','files' => true])!!}
@@ -45,7 +45,7 @@
 						<div class="col-md-8">
 						<div class="form-group">
 		         		{!! Form::file('image','',['class' => 'btn']) !!}
-					    {!! Html::image('assets/photo/'.$setting->photo,'', array('width' => '25%')) !!}
+					 
 						</div>
 						</div>
 
@@ -63,7 +63,7 @@
 	@if ($errors->any())
 	<ul class="alert alert-danger">
 		@foreach($errors->all() as $error)
-			<li>{{$error}}</li>
+			<li>{!! $error !!}</li>
 		@endforeach
 	</ul>
 @endif

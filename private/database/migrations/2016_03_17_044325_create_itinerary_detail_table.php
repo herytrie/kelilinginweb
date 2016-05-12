@@ -15,14 +15,16 @@ class CreateItineraryDetailTable extends Migration {
 		Schema::create('itinerary_detail', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->unsignedInteger('itinerary_id');
-			$table->foreign('itinerary_id')->references('id')->on('itinerary')->onDelete('CASCADE');
-			$table->integer('day');
-			$table->string('name_activity');
-			$table->string('location');
-			$table->string('photo');
-			$table->string('description');
-			$table->timestamps();
+            $table->unsignedInteger('itinerary_id');
+            $table->foreign('itinerary_id')->references('id')->on('itinerary')->onDelete('CASCADE');
+            $table->date('tanggal');
+            $table->string('place');
+            $table->string('alamat');
+            $table->string('lat');
+            $table->string('lng');
+            $table->string('image');
+            $table->text('keterangan');
+            $table->timestamps();
 		});
 	}
 

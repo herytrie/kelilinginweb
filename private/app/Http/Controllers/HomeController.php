@@ -4,7 +4,9 @@ use Auth;
 use DB;
 use App\User;
 use App\Posting;
+use App\Repositories\Feed\FeedRepository;
 use App\Following;
+use App\TravelPlan;
 use App\Like;
 use Redirect;
 use Input;
@@ -21,6 +23,7 @@ class HomeController extends Controller {
 	| controller as you wish. It is just here to get your app started!
 	|
 	*/
+	protected $feedRepository;
 
 	/**
 	 * Create a new controller instance.
@@ -29,6 +32,7 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
+		$this->currentUser = Auth::user();
 		$this->middleware('auth');
 	}
 
@@ -41,6 +45,7 @@ class HomeController extends Controller {
 	{
 		$userauth = Auth::user()->id;
 		$user = User::findOrFail($userauth);
+		$userall = User::where('id', '!=', $userauth)->get();
 		//$konten = Posting::latest('created_at')->get();
 
 		foreach ($user->following as $temp){
@@ -66,11 +71,72 @@ class HomeController extends Controller {
 
 		//$gabung[] = $user;
 
-
+//dd($user);
 		// $gabung = array_merge($post, $akun);
-      	return view('home')->with('gabung',$gabung);
+      	return view('home')->with('gabung',$gabung)->with('all',$userall);
       	//return view('home')->with('post',$post);
 	}
+
+	public function popular()
+	{
+		$userauth = Auth::user()->id;
+		$user = User::findOrFail($userauth);
+		$userall = User::where('id', '!=', $userauth)->get();
+
+				$likes = DB::table('likes')
+                     ->select(DB::raw('count(post_id), post_id'))
+                     ->groupBy('post_id')
+                     ->orderBy('count(post_id)','desc')
+                     ->get('post_id');
+
+                     foreach($likes as $temp){
+                     	$postid = $temp->post_id;
+                     	$posting[] = Posting::findOrFail($postid);
+                     }
+
+                      //$like[] = $likes->post_id;
+
+                     //var_dump($posting);
+                    // echo $posting[];
+
+      	return view('post.popular')->with('like',$posting)->with('all',$userall)->with('user',$user);
+	}
+
+	public function listplan()
+	{
+		$userauth = Auth::user()->id;
+
+		$input = Input::all();
+		$from = $input['fromdate'];
+		$to = $input['todate'];
+		$destination = $input['destination'];
+
+		$search = TravelPlan::whereBetween('datefrom', [$from, $to])
+                    ->orWhere('tujuan', $destination)->get();
+
+       // foreach ($search as $search) {
+       // 		$user = User::findOrFail($search->user_id);
+       // 		$arruser[] = $user;
+       // }
+    
+		return view('post.listplan')->with('listplan',$search);
+	}
+
+	// public function index(FeedRepository $feedRepository)
+	// {
+	// 	$user = $this->currentUser;
+
+	// 	$feeds = $feedRepository->getPublishedByUserAndFriends($user);
+
+	// 	$friendsUserIds[] = $user->id;
+
+	// 	$feedsCount = Posting::getTotalCountFeedsForUser($friendsUserIds);
+
+	// 	var_dump($user);
+	// 	var_dump($feeds);
+	// 	var_dump($feedsCount);
+	// 	//return view('home')->with('user',$user)->with('feeds',$feeds)->with('feedsCount',$feedsCount);
+	// }
 
 
     public function setting() {
@@ -79,29 +145,30 @@ class HomeController extends Controller {
 		return view('user.setting')->with('setting',$view);
     }
 
-    public function update(User $user, Request $request) {
+    public function update(Request $request) {
     	$userid = Auth::user()->id;
     	//$rule = ['name' => 'required|min:3', 'email' => 'required|email', 'phone' => 'required|min:11', 'info' => 'required|min:5'];
     	//$validasi = Validator->make($input, $rule);
         $view = User::findOrFail($userid);
         //$view->update($request->all());
-        $input = array_except(Input::all(), '_method');
+        $input = $request->all();
 
 
-        if (Input::hasFile('image'))
+        if ($request->hasFile('image'))
 		{
-			$file = array('image' => Input::file('image'));
-			if (Input::file('image')->isValid()) {
+			$file = array('image' => $request->file('image'));
+			if ($request->file('image')->isValid()) {
 	   		$destinationPath = './assets/photo/'; // upload path
-			$fileName = $view->name. '-' .time() . '.' . Input::file('image')->getClientOriginalExtension(); // renaming image
-	    	Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+			$fileName = time(). $view->id . '.' . $request->file('image')->getClientOriginalExtension(); // renaming image
+	    	$request->file('image')->move($destinationPath, $fileName); // uploading file to given path
 			$input['photo'] = $fileName;
 			$view->update($input); 
 			//var_dump($input);
 			return redirect()->back();
 			}
 		}else {
-			$view->update($input); 
+			$view->update($input);
+			//var_dump($input); 
 			return redirect()->back();
 		}
         // $view->update = $request->input('name');

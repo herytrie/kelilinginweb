@@ -16,7 +16,7 @@
 		@endforeach -->
 
 @foreach($follow->following as $temp)
-	{{$temp}}
+	{!! $temp !!}
 @endforeach		
 
 </article>

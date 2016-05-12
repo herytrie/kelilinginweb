@@ -72,19 +72,19 @@
 				
 			  	<div class="panel-body">
 				<div class="head" style="margin-bottom: 0px;">
-				<a href="index.php"><img src="{{ asset('/img/logo-out.png') }}"></a>
+				<a href="#"><h1 class='logo'>Kelilingin</h1></a>
 				<p class="white f14px" style="color: #ACABAB;"><b>Create Your Free Account.</b></p>
 				</div>
-			    	<form accept-charset="UTF-8" role="form"  action="{{ url('/auth/register') }}" method="POST">
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			    	<form accept-charset="UTF-8" role="form"  action="{!! url('/auth/register') !!}" method="POST">
+					<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 						<span class="input input--fumi" style="margin-bottom:-15px;">
-							<input class="input__field input__field--fumi" placeholder="E-mail" name="email" type="email" id="input-23" value="{{ old('email') }}" required/>
+							<input class="input__field input__field--fumi" placeholder="E-mail" name="email" type="email" id="input-23" value="{!! old('email') !!}" required/>
 							<label class="input__label input__label--fumi" for="input-23">
 								<i class="fa fa-fw fa-envelope-o icon icon--fumireg"></i>
 							</label>
 						</span>
 						<span class="input input--fumi" style="margin-bottom:-15px;">
-							<input class="input__field input__field--fumi" placeholder="Name" name="name" type="text" id="input-23" value="{{ old('name') }}" required/>
+							<input class="input__field input__field--fumi" placeholder="Name" name="name" type="text" id="input-23" value="{!! old('name') !!}" required/>
 							<label class="input__label input__label--fumi" for="input-23">
 								<i class="fa fa-fw fa-user icon icon--fumireg"></i>
 							</label>
@@ -110,7 +110,7 @@
 							<strong>Whoops!</strong> There were some problems with your input.<br>
 							<ul>
 								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
+									<li>{!! $error !!}</li>
 								@endforeach
 							</ul>
 						</div>

@@ -15,18 +15,15 @@ Route::get('/', 'WelcomeController@index');
 // Route::get('about', 'WelcomeController@about');
 
 Route::get('home', 'HomeController@index');
+Route::get('popular', 'HomeController@popular');
+Route::post('listplan', 'HomeController@listplan');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-//Route::model('article','App\Article');
-Route::get('about', 'LamanController@about');
-Route::get('contact', 'LamanController@contact');
-Route::resource('artikel', 'ArtikelController');
-Route::get('user/{id}', 'RelasiController@profile');
 
-Route::get('profile/{id}',['as' => 'profile.show','uses' => 'UserController@index']);
+Route::get('profile/{slug}',['as' => 'profile.show','uses' => 'UserController@index']);
 
 Route::get('follow/{id}', 'UserController@follow');
 Route::get('unfollow/{id}', 'UserController@unfollow');
@@ -34,7 +31,7 @@ Route::get('unfollow/{id}', 'UserController@unfollow');
 Route::get('like/{id}', 'PostController@like');
 Route::get('unlike/{id}','PostController@unlike');
 
-Route::get('posting/{id}','PostController@index');
+Route::get('posting/{slug}','PostController@index');
 Route::post('posting/{id}',['as' => 'post.newcom','uses' =>'PostController@storecomment']);
 
 Route::get('setting',['as' => 'setting.show','uses' => 'HomeController@setting']);
@@ -44,9 +41,13 @@ Route::get('following/{id}', 'RelasiController@following');
 Route::get('place/{id}', 'RelasiController@place');
 
 Route::get('createplan',['as' => 'plan.show','uses' => 'PostController@createplan']);
+Route::post('createplan',['as' => 'plan.newplan','uses' =>'PostController@storeplan']);
 
 Route::get('social/login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
-Route::get('social/login/{provider}', 'Auth\AuthController@handleProviderCallback');
+Route::get('callback/{provider}', 'Auth\AuthController@handleProviderCallback');
+
+Route::get('social/login/redirect/{provider}', ['uses' => 'Auth\AuthController@redirectToProvider', 'as' => 'social.login']);
+Route::get('callback/{provider}', 'Auth\AuthController@handleProviderCallback');
 // Route::get('relasi-1', function() {
 
 // 	$user = App\User::where('id', '=', '9')->first();

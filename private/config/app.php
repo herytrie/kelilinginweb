@@ -137,6 +137,9 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
 		'Laravel\Socialite\SocialiteServiceProvider',
+		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+		'Kryptonit3\Counter\CounterServiceProvider',
+		'JD\Cloudder\CloudderServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -197,6 +200,8 @@ return [
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'Html'      => 'Illuminate\Html\HtmlFacade',
 		'Socialite' => 'Laravel\Socialite\Facades\Socialite',
+		'Counter' 	=> 'Kryptonit3\Counter\Facades\CounterFacade',
+		'Cloudder' => 'JD\Cloudder\Facades\Cloudder',
 
 	],
 
