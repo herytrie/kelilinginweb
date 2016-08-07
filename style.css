@@ -1,0 +1,74 @@
+.margintop150px{
+	margin-top: 150px;
+}
+.bglogin{
+	background-color: #008B8B;
+}
+.nobg{
+	background-color: none;
+}
+.width100{
+	width: 100%;
+}
+.marginbottom55px{
+	margin-bottom: 55px;
+}
+.clearbody{
+	min-width: 0px; min-height: 0px; text-align: none; margin: 0px; font-family: none; font-size: none; color: none;
+}
+.noradius{
+	border-radius: 0px;
+}
+.form-control:focus{
+	box-shadow: none;
+}
+.paddingb18per{
+	padding-bottom: 18%;
+}
+.btn-info:hover{
+	background-color: #008B8B;
+	transition: all 0.2s ease-in-out 0s;
+}
+.padding25px{
+	padding: 25px;
+}
+.btnlogin{
+	background-color: #05ACA9;
+	margin-top: 10px;
+}
+.fg-toolbar.ui-widget-header.ui-corner-tl.ui-corner-tr.ui-helper-clearfix{
+	padding-bottom: 50px;
+}
+.dataTables_length{
+	float: left;
+}
+.dataTables_filter{
+	float: right;
+}
+.fg-toolbar.ui-widget-header.ui-corner-bl.ui-corner-br.ui-helper-clearfix{
+	padding: 20px 0px 30px;
+}
+.dataTables_info{
+	float: left;
+}
+.dataTables_paginate{
+	float: right;
+}
+.first.ui-corner-tl.ui-corner-bl.fg-button.ui-state-default{
+	padding: 2px 10px;
+	cursor: pointer;
+}
+.previous.fg-button.ui-state-default{
+	padding: 2px 10px;
+	cursor: pointer;
+}
+.fg-button.ui-state-default{
+	padding: 2px 10px;
+	cursor: pointer;
+}
+.mb20px{
+	margin-bottom: 20px;
+}
+.f25{
+	font-size: 25px;
+}
