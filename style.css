@@ -1,74 +1,230 @@
-.margintop150px{
-	margin-top: 150px;
+.img-nav{
+	width: 25px;
+	height: 25px;
 }
-.bglogin{
-	background-color: #008B8B;
+
+.img-nav35{
+    width: 35px;
+    height: 35px;
 }
-.nobg{
-	background-color: none;
-}
-.width100{
+
+.imgprofile .col-md-2 > img {
+    width: 140px;
+    height: 140px;
+ }
+
+ .clear {
+	clear: both;
+ }
+
+ .top10{
+ 	margin-top: 10%;
+ }
+
+ .btm5{
+    margin-bottom: 5%;
+ }
+ 
+.coverimage{
 	width: 100%;
+	height: 60%;
+ }
+ 
+ .btn-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
 }
-.marginbottom55px{
-	margin-bottom: 55px;
+.btn-upload input[type=file] {
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+    max-width: 100%;
+    height: 100%;
+    display: block;
 }
-.clearbody{
-	min-width: 0px; min-height: 0px; text-align: none; margin: 0px; font-family: none; font-size: none; color: none;
+.btn-upload .btn{
+    padding: 8px 20px;
+    background: #337ab7;
+    border: 1px solid #2e6da4;
+    color: #fff;
+    border: 0;
 }
-.noradius{
-	border-radius: 0px;
+.btn-upload:hover .btn{
+    padding: 8px 20px;
+    background: #2e6da4;
+    color: #fff;
+    border: 0;
 }
-.form-control:focus{
-	box-shadow: none;
+
+.message-value{
+    height: 75%;
+    overflow: scroll;
 }
-.paddingb18per{
-	padding-bottom: 18%;
+
+.nomargin-updown{
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
-.btn-info:hover{
-	background-color: #008B8B;
-	transition: all 0.2s ease-in-out 0s;
+
+.list-inbox{
+    cursor: pointer;
 }
-.padding25px{
-	padding: 25px;
+
+.list-inbox:hover{
+    background-color: #F1F2F1;
 }
-.btnlogin{
-	background-color: #05ACA9;
-	margin-top: 10px;
+
+.right{
+    float: right;
 }
-.fg-toolbar.ui-widget-header.ui-corner-tl.ui-corner-tr.ui-helper-clearfix{
-	padding-bottom: 50px;
+
+hr{
+    margin: 5px;
 }
-.dataTables_length{
-	float: left;
+
+.notif-scroll{
+    height: 40%;
+    overflow: scroll;
 }
-.dataTables_filter{
-	float: right;
+
+.icon-nav{
+    font-size: 16px;
 }
-.fg-toolbar.ui-widget-header.ui-corner-bl.ui-corner-br.ui-helper-clearfix{
-	padding: 20px 0px 30px;
+
+.size-sup{
+    font-size: 85%;
 }
-.dataTables_info{
-	float: left;
+
+.bs-callout{
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
 }
-.dataTables_paginate{
-	float: right;
+
+.grid-item {
+  float: left;
+  width: 31.3%;
+  margin: 1%;
 }
-.first.ui-corner-tl.ui-corner-bl.fg-button.ui-state-default{
-	padding: 2px 10px;
-	cursor: pointer;
+
+.widthfull{
+    width: 100%;
 }
-.previous.fg-button.ui-state-default{
-	padding: 2px 10px;
-	cursor: pointer;
+
+.margin0{
+    margin: 0px;
 }
-.fg-button.ui-state-default{
-	padding: 2px 10px;
-	cursor: pointer;
+
+.img-circle30{
+    width: 30px;
+    height: 30px;
 }
-.mb20px{
-	margin-bottom: 20px;
+
+.fonttime{
+    color: grey;
+    font-size: 12px;
 }
-.f25{
-	font-size: 25px;
+
+.panelhead-white{
+    background-color: #fff;
+    border-color: #fff;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.whitegrey{
+    background-color: #FAFAFA;
+    border: none;
+}
+
+.likefont{
+    color: #ED4956;
+    font-size: 20px;
+}
+
+.panel-default{
+    border: 1px solid #efefef;
+}
+
+.logocheckpost{
+    color: #D6D4D4;
+}
+
+.tooltip-inner {
+    white-space:pre-wrap;
+}
+
+.padding-nav{
+    padding: 0 3% 0 3%;
+}
+
+.timeline-headline{
+    position: relative;
+    min-height: 45px;
+    background-color: rgb(245, 245, 245);
+    border: medium none;
+    border-radius: 0px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+}
+
+.nomargin-bottom{
+    margin-bottom: 0px;
+}
+
+.inner-headline{
+    padding-left: 30%;
+    padding-top: 10px;
+}
+
+.inner-headline a{
+    padding: 13px 25px 15px;
+    border-right: 1px solid #CECACA;
+}
+
+.inner-headline a:hover{
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.profilepicthumb{
+    border: 8px solid #fff;
+    background-color: #fff;
+}
+
+.profilepic-headline{
+    box-shadow: none;
+    left: 50px;
+    margin-top: 0;
+    bottom: 30px;
+    position: absolute;
+}
+
+.profilename-headline{
+    left: 260px;
+    position: absolute;
+    top: 300px;
+}
+.white{
+    color: #fff;
+}
+
+.btnright-headline{
+    bottom: 50px;
+    position: relative;
+    right: 50px;
+}
+
+.top70{
+    margin-top: 70px;
+}
+
+.yellow {
+    color: #F39C12;
+    font-size: 16px;
 }
